@@ -3,7 +3,10 @@
     dest: "{{ dest_key | dirname }}"
     mode: 0700
     state: directory
+- debug:
+    msg: "path :{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
   tags:
+    - dotfiles
     - install
     - ssh
 - name: Install ssh key
@@ -12,6 +15,7 @@
     dest: "{{ dest_key }}"
     mode: 0600
   tags:
+    - dotfiles
     - install
     - ssh
 - name: Install ssh key public
@@ -20,15 +24,13 @@
     dest: "{{ dest_key }}.pub"
     mode: 0644
   tags:
+    - dotfiles
     - install
     - ssh
-- name: Init ssh agent.
-  shell: eval "$(ssh-agent -s)"
-  tags:
-    - install
-    - ssh
-- name: Add SSH private key to the ssh-agent.
-  shell: ssh-add
-  tags:
-    - install
-    - ssh
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+  with_fileglob:
+  - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"

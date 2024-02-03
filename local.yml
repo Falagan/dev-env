@@ -1,7 +1,7 @@
 - hosts: localhost
   vars:
-    source_key: "./.ssh/id_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env', 'HOME') }}/Personal"
   pre_tasks:
   - name: Update Apt
@@ -15,7 +15,7 @@
       - core
   tasks:
     - include: tasks/ssh.yml
-    - include: tasks/git.yml
+    #- include: tasks/git.yml
     #- include: tasks/core-setup.yml
     #- include: tasks/node-setup.yml
     #- include: tasks/npm-packages.yml
