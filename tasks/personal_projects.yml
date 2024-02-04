@@ -1,0 +1,20 @@
+- name: ar-app-web exists
+  stat:
+    path: "{{ personal }}/ar-app-web"
+  register: ar-app-web
+  tags:
+    - install
+    - dotfiles
+    - ar-app-web
+    - personal-project
+- name: Personal Project ar-app-web
+  ansible.builtin.git:
+    repo: 'git@github.com:Falagan/ar-app-web.git'
+    bare: true
+    dest: "{{ personal }}/ar-app-web"
+  tags:
+    - install
+    - dotfiles
+    - ar-app-web
+    - personal-project
+  when: ar-app-web.stat.exists == False
