@@ -1,8 +1,19 @@
-#- name: Install eslint
-#  npm:
-#    name: eslint
-#    global: yes
-#  tags:
-#    - install
-#    - node
+- name: Install N
+  become: true
+  npm:
+    name: n
+    global: yes
+  tags:
+    - install
+    - node
+    
+- name: Install npm-check-updates
+  become: true
+  become_method: sudo
+  npm:
+    name: ncu
+    global: yes
+  tags:
+    - install
+    - node
 

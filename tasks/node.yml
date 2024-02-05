@@ -34,19 +34,30 @@
   - install
   - node
   - npm-path
-
-- name: Install N
+  
+- name: set npm prefix in bash rc
   become: true
-  npm:
-    name: n
-    global: yes
+  shell: echo "export PATH=$PATH:$(npm get prefix)/bin" >> ~/.bashrc
   tags:
-    - install
-    - node
-
-- name: Install correct version of Node
+  - install
+  - node
+  - npm-path
+ 
+- name: set npm prefix in zsh rc
   become: true
-  shell: n 18
+  shell: echo "export PATH=$PATH:$(npm get prefix)/bin" >> ~/.zshrc
   tags:
-    - install
-    - node
+  - install
+  - node
+  - npm-path
+  
+- name: source zsh rc
+  become: true
+  shell: source ~/.zshrc
+  args:
+     executable: /bin/bash
+  tags:
+  - install
+  - node
+  - npm-path
+  

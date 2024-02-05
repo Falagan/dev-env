@@ -14,12 +14,13 @@
       - install
       - core
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/git.yml    
-    - include: tasks/brave.yml
+    #- include: tasks/ssh.yml
+    #- include: tasks/git.yml    
+    #- include: tasks/brave.yml
+    #- include: tasks/chrome.yml
     - include: tasks/personal_projects.yml
-    - include: tasks/node.yml
+    #- include: tasks/node.yml
     - include: tasks/npm_packages.yml
-    - include: tasks/zsh.yml
-    - include: tasks/vscode.yml
+    #- include: tasks/zsh.yml
+    #- include: tasks/vscode.yml
     #- include: tasks/slack-setup.yml
