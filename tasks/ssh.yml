@@ -1,25 +1,54 @@
+# PERSONAL SSH KEYS
 - name: Ensure .ssh directory exists.
   file:
-    dest: "{{ dest_key | dirname }}"
+    dest: "{{ dest_personal_key | dirname }}"
     mode: 0700
     state: directory
   tags:
     - dotfiles
     - install
     - ssh
-- name: Install ssh key
+- name: Install personal ssh key
   copy:
-    src: "{{ source_key }}"
-    dest: "{{ dest_key }}"
+    src: "{{ source_personal_key }}"
+    dest: "{{ dest_personal_key }}"
     mode: 0600
   tags:
     - dotfiles
     - install
     - ssh
-- name: Install ssh key public
+- name: Install personal ssh key public
   copy:
-    src: "{{ source_key }}.pub"
-    dest: "{{ dest_key }}.pub"
+    src: "{{ source_personal_key }}.pub"
+    dest: "{{ dest_personal_key }}.pub"
+    mode: 0644
+  tags:
+    - dotfiles
+    - install
+    - ssh
+#FALAGAN SSH KEYS
+- name: Ensure .ssh directory exists.
+  file:
+    dest: "{{ dest_falagan_key | dirname }}"
+    mode: 0700
+    state: directory
+  tags:
+    - dotfiles
+    - install
+    - ssh
+- name: Install falagan ssh key
+  copy:
+    src: "{{ source_falagan_key }}"
+    dest: "{{ dest_falagan_key }}"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - ssh
+- name: Install falagan ssh key public
+  copy:
+    src: "{{ source_falagan_key }}.pub"
+    dest: "{{ dest_falagan_key }}.pub"
     mode: 0644
   tags:
     - dotfiles

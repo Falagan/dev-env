@@ -1,0 +1,15 @@
+- name: Remove Any previous slacks
+  become: true
+  apt:
+    name: slack-desktop
+    state: absent
+  tags:
+    - install
+    - slack
+
+- name: Install Slack .deb package
+  become: true
+  shell: snap install slack
+  tags:
+    - install
+    - slack
