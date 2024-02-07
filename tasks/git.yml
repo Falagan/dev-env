@@ -5,6 +5,7 @@
     value: "ep.falagan@gmail.com"
   tags:
   - git-personal
+  
 - name: Git personal setup name
   git_config:
     name: user.name
@@ -12,3 +13,9 @@
     value: "Eloy Perez"
   tags:
   - git-personal
+  
+- name: Install gitflow
+  become: true
+  shell: apt-get install git-flow
+  tags: 
+   -git-flow
