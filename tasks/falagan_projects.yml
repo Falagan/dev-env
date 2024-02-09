@@ -10,7 +10,7 @@
     
 - name: falagan_software Project ar-app-web
   git:
-    repo: 'git@github.com:falagansoftware/ar-app-web.git'
+    repo: 'git@github.com-falagansoftware:falagansoftware/ar-app-web.git'
     dest: "{{ falagan_software }}/Projects/ar-app-web"
     clone: yes
     update: yes
@@ -33,7 +33,7 @@
     
 - name: falagan_software Project ar-service-api
   git:
-    repo: 'git@github.com:falagansoftware/ar-service-api.git'
+    repo: 'git@github.com-falagansoftware:falagansoftware/ar-service-api.git'
     dest: "{{ falagan_software }}/Projects/ar-service-api"
     clone: yes
     update: yes
