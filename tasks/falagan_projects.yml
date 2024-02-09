@@ -1,0 +1,45 @@
+- name: ar-app-web exists
+  stat:
+    path: "{{ falagan_software }}/Projects/ar-app-web"
+  register: arAppWeb
+  tags:
+    - install
+    - dotfiles
+    - ar-app-web
+    - falagan_software-project
+    
+- name: falagan_software Project ar-app-web
+  git:
+    repo: 'git@github.com:falagansoftware/ar-app-web.git'
+    dest: "{{ falagan_software }}/Projects/ar-app-web"
+    clone: yes
+    update: yes
+  tags:
+    - install
+    - dotfiles
+    - ar-app-web
+    - falagan_software-project
+  when: arAppWeb.stat.exists == False
+  
+- name: ar-service-api exists
+  stat:
+    path: "{{ falagan_software }}/Projects/ar-service-api"
+  register: arServiceApi
+  tags:
+    - install
+    - dotfiles
+    - ar-service-api
+    - falagan_software-project
+    
+- name: falagan_software Project ar-service-api
+  git:
+    repo: 'git@github.com:falagansoftware/ar-service-api.git'
+    dest: "{{ falagan_software }}/Projects/ar-service-api"
+    clone: yes
+    update: yes
+  tags:
+    - install
+    - dotfiles
+    - ar-service-api
+    - falagan_software-project
+  when: arServiceApi.stat.exists == False

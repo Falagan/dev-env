@@ -5,6 +5,7 @@
     source_falagan_key: "./.ssh/id_rsa_github_falagan"
     dest_falagan_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_github_falagan"
     personal: "{{ lookup('env', 'HOME') }}/Personal"
+    falagan_software: "{{ lookup('env', 'HOME') }}/Falagan_Software"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -16,11 +17,12 @@
       - install
       - core
   tasks:
-    - include: tasks/ssh.yml
+    #- include: tasks/ssh.yml
     #- include: tasks/git.yml    
     #- include: tasks/brave.yml
     #- include: tasks/chrome.yml
-    #- include: tasks/personal_projects.yml
+     - include: tasks/personal_projects.yml
+     - include: tasks/falagan_projects.yml
     #- include: tasks/node.yml
     #- include: tasks/npm_packages.yml
     #- include: tasks/zsh.yml

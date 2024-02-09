@@ -1,45 +1,45 @@
-- name: ar-app-web exists
+- name: career-app exists
   stat:
-    path: "{{ personal }}/Projects/ar-app-web"
-  register: arAppWeb
+    path: "{{ personal }}/Projects/career-app"
+  register: careerApp
   tags:
     - install
     - dotfiles
-    - ar-app-web
+    - career-app
     - personal-project
     
-- name: Personal Project ar-app-web
+- name: personal Project career-app
   git:
-    repo: 'git@github.com:Falagan/ar-app-web.git'
-    dest: "{{ personal }}/Projects/ar-app-web"
+    repo: 'git@github.com:Falagan/career-app.git'
+    dest: "{{ personal }}/Projects/career-app"
     clone: yes
     update: yes
   tags:
     - install
     - dotfiles
-    - ar-app-web
+    - career-app
     - personal-project
-  when: arAppWeb.stat.exists == False
+  when: careerApp.stat.exists == False
   
-- name: ar-service-api exists
+- name: career-api exists
   stat:
-    path: "{{ personal }}/Projects/ar-service-api"
-  register: arServiceApi
+    path: "{{ personal }}/Projects/career-api"
+  register: careerApi
   tags:
     - install
     - dotfiles
-    - ar-service-api
+    - career-api
     - personal-project
     
-- name: Personal Project ar-service-api
+- name: personal Project career-api
   git:
-    repo: 'git@github.com:Falagan/ar-service-api.git'
-    dest: "{{ personal }}/Projects/ar-service-api"
+    repo: 'git@github.com:Falagan/career-api.git'
+    dest: "{{ personal }}/Projects/career-api"
     clone: yes
     update: yes
   tags:
     - install
     - dotfiles
-    - ar-service-api
+    - career-api
     - personal-project
-  when: arServiceApi.stat.exists == False
+  when: careerApi.stat.exists == False
