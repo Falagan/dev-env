@@ -60,3 +60,24 @@
     - go-htmx
     - personal-project
   when: goHtmx.stat.exists == False
+
+- name: report-sil exists
+  stat:
+    path: "{{ personal }}/projects/report-sil"
+  register: reportSil
+  tags:
+    - install
+    - report-sil
+    - personal-project
+    
+- name: personal project report-sil
+  git:
+    repo: 'git@github.com:Falagan/report-sil.git'
+    dest: "{{ personal }}/projects/report-sil"
+    clone: yes
+    update: yes
+  tags:
+    - install
+    - report-sil
+    - personal-project
+  when: reportSil.stat.exists == False
