@@ -6,8 +6,8 @@
     dest_personal_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     source_falagan_key: "./.ssh/id_rsa_github_falagan"
     dest_falagan_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_github_falagan"
-    personal: "{{ lookup('env', 'HOME') }}/Personal"
-    falagan_software: "{{ lookup('env', 'HOME') }}/Falagan_Software"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
+    falagan_software: "{{ lookup('env', 'HOME') }}/falagan_software"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -19,18 +19,18 @@
       - install
       - core
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/git.yml    
-    - include: tasks/brave.yml
-    - include: tasks/chrome.yml
-    - include: tasks/personal_projects.yml
-    - include: tasks/falagan_projects.yml
-    - include: tasks/node.yml
-    - include: tasks/npm_packages.yml
-    - include: tasks/zsh.yml
-    - include: tasks/vscode.yml
-    - include: tasks/docker.yml
-    - include: tasks/go.yml
-    - include: tasks/slack.yml
-    - include: tasks/thunderbird.yml
-    - include: tasks/discord.yml
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/git.yml    
+    - import_tasks: tasks/brave.yml
+    - import_tasks: tasks/chrome.yml
+    - import_tasks: tasks/personal_projects.yml
+    - import_tasks: tasks/falagan_projects.yml
+    - import_tasks: tasks/node.yml
+    - import_tasks: tasks/npm_packages.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/vscode.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/go.yml
+    - import_tasks: tasks/slack.yml
+    - import_tasks: tasks/thunderbird.yml
+    - import_tasks: tasks/discord.yml

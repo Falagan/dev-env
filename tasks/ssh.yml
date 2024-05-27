@@ -5,7 +5,6 @@
     mode: 0700
     state: directory
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install ssh config
@@ -14,7 +13,6 @@
     dest: "{{ dest_ssh_config }}"
     mode: 0600
   tags:
-    - dotfiles
     - install
     - ssh
 # PERSONAL SSH KEYS
@@ -24,7 +22,6 @@
     mode: 0700
     state: directory
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install personal ssh key
@@ -33,7 +30,6 @@
     dest: "{{ dest_personal_key }}"
     mode: 0600
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install personal ssh key public
@@ -42,7 +38,6 @@
     dest: "{{ dest_personal_key }}.pub"
     mode: 0644
   tags:
-    - dotfiles
     - install
     - ssh
 #FALAGAN SSH KEYS
@@ -52,7 +47,6 @@
     mode: 0700
     state: directory
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install falagan ssh key
@@ -61,7 +55,6 @@
     dest: "{{ dest_falagan_key }}"
     mode: 0600
   tags:
-    - dotfiles
     - install
     - ssh
 - name: Install falagan ssh key public
@@ -70,7 +63,6 @@
     dest: "{{ dest_falagan_key }}.pub"
     mode: 0644
   tags:
-    - dotfiles
     - install
     - ssh
 #- name: Set authorized key took from file
