@@ -33,3 +33,4 @@
     - include: tasks/go.yml
     - include: tasks/slack.yml
     - include: tasks/thunderbird.yml
+    - include: tasks/discord.yml

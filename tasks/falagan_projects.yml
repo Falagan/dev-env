@@ -1,45 +1,62 @@
 - name: ar-app-web exists
   stat:
-    path: "{{ falagan_software }}/Projects/ar-app-web"
+    path: "{{ falagan_software }}/projects/ar-app-web"
   register: arAppWeb
   tags:
     - install
-    - dotfiles
     - ar-app-web
     - falagan_software-project
-    
-- name: falagan_software Project ar-app-web
+
+- name: falagan_software project ar-app-web
   git:
-    repo: 'git@github.com-falagansoftware:falagansoftware/ar-app-web.git'
-    dest: "{{ falagan_software }}/Projects/ar-app-web"
+    repo: "git@github.com-falagansoftware:falagansoftware/ar-app-web.git"
+    dest: "{{ falagan_software }}/projects/ar-app-web"
     clone: yes
     update: yes
   tags:
     - install
-    - dotfiles
     - ar-app-web
     - falagan_software-project
   when: arAppWeb.stat.exists == False
-  
+
 - name: ar-service-api exists
   stat:
-    path: "{{ falagan_software }}/Projects/ar-service-api"
+    path: "{{ falagan_software }}/projects/ar-service-api"
   register: arServiceApi
   tags:
     - install
-    - dotfiles
     - ar-service-api
     - falagan_software-project
-    
-- name: falagan_software Project ar-service-api
+
+- name: falagan_software project ar-service-api
   git:
-    repo: 'git@github.com-falagansoftware:falagansoftware/ar-service-api.git'
-    dest: "{{ falagan_software }}/Projects/ar-service-api"
+    repo: "git@github.com-falagansoftware:falagansoftware/ar-service-api.git"
+    dest: "{{ falagan_software }}/projects/ar-service-api"
     clone: yes
     update: yes
   tags:
     - install
-    - dotfiles
     - ar-service-api
     - falagan_software-project
   when: arServiceApi.stat.exists == False
+
+- name: falagan_plan exists
+  stat:
+    path: "{{ falagan_software }}/projects/falagan_plan"
+  register: falaganPlan
+  tags:
+    - install
+    - falagan_plan
+    - falagan_software-project
+
+- name: falagan_software project falagan_plan
+  git:
+    repo: "git@github.com-falagansoftware:falagansoftware/falagan_plan.git"
+    dest: "{{ falagan_software }}/projects/falagan_plan"
+    clone: yes
+    update: yes
+  tags:
+    - install
+    - falagan_plan
+    - falagan_software-project
+  when: falaganPlan.stat.exists == False

@@ -14,8 +14,24 @@
   tags:
   - git-personal
   
+- name: Git falagan setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "falagansoftware@gmail.com"
+  tags:
+  - git-falagan
+  
+- name: Git falagan setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+  
 - name: Install gitflow
   become: true
   shell: apt-get install git-flow
   tags: 
-   -git-flow
+   - git-flow

@@ -1,0 +1,56 @@
+- name: required libraries for intellij
+  become: true
+  apt:
+    name: ["libfuse2"]
+  tags:
+    - install
+    - intellij
+    
+- name: install wget jetbrains toolbox
+  become: true
+  shell: wget -c https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.27.3.14493.tar.gz
+  tags:
+  - install
+  - intellij
+  
+- name: extract jetbrains toolbox
+  become: true
+  shell: tar -xvzf ~/Downloads/jetbrains-toolbox-1.27.3.14493.tar.gz
+  tags:
+  - install
+  - intellij 
+  
+- name: remove jetbrains packages
+  become: true
+  shell: rm -f jetbrains-toolbox-1.27.3.14493.tar.gz
+  tags:
+  - install
+  - intellij
+ 
+- name: go to opt directory
+  become: true
+  shell: cd /opt
+  tags:
+  - install
+  - intellij
+
+- name: move toolbox to final directory
+  become: true
+  shell: mv jetbrains-toolbox-1.27.3.14493.tar.gz/jetbrains-toolbox jetbrains
+  tags:
+  - install
+  - intellij
+
+- name: remove intellij packages
+  become: true
+  shell: rm -rf jetbrains-toolbox-1.27.3.14493.tar.gz
+  tags:
+  - install
+  - intellij
+  
+- name: install jetbrains toolbox
+  become: true
+  shell: jetbrains-toolbox
+  tags:
+  - install
+  - intellij

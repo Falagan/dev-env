@@ -1,4 +1,4 @@
-- name: Remove Any previous slacks
+- name: Remove any previous slacks
   become: true
   apt:
     name: slack-desktop

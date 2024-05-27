@@ -1,45 +1,62 @@
 - name: career-app exists
   stat:
-    path: "{{ personal }}/Projects/career-app"
+    path: "{{ personal }}/projects/career-app"
   register: careerApp
   tags:
     - install
-    - dotfiles
     - career-app
     - personal-project
     
-- name: personal Project career-app
+- name: personal project career-app
   git:
     repo: 'git@github.com:Falagan/career-app.git'
-    dest: "{{ personal }}/Projects/career-app"
+    dest: "{{ personal }}/projects/career-app"
     clone: yes
     update: yes
   tags:
     - install
-    - dotfiles
     - career-app
     - personal-project
   when: careerApp.stat.exists == False
   
 - name: career-api exists
   stat:
-    path: "{{ personal }}/Projects/career-api"
+    path: "{{ personal }}/projects/career-api"
   register: careerApi
   tags:
     - install
-    - dotfiles
     - career-api
     - personal-project
     
-- name: personal Project career-api
+- name: personal project career-api
   git:
     repo: 'git@github.com:Falagan/career-api.git'
-    dest: "{{ personal }}/Projects/career-api"
+    dest: "{{ personal }}/projects/career-api"
     clone: yes
     update: yes
   tags:
     - install
-    - dotfiles
     - career-api
     - personal-project
   when: careerApi.stat.exists == False
+
+- name: go-htmx exists
+  stat:
+    path: "{{ personal }}/projects/go-htmx"
+  register: goHtmx
+  tags:
+    - install
+    - go-htmx
+    - personal-project
+    
+- name: personal project go-htmx
+  git:
+    repo: 'git@github.com:Falagan/go-htmx.git'
+    dest: "{{ personal }}/projects/go-htmx"
+    clone: yes
+    update: yes
+  tags:
+    - install
+    - go-htmx
+    - personal-project
+  when: goHtmx.stat.exists == False
