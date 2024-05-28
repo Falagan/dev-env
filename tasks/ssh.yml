@@ -15,6 +15,12 @@
   tags:
     - install
     - ssh
+- name: set know hosts
+  become: true
+  shell: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+  tags:
+    - install
+    - ssh
 # PERSONAL SSH KEYS
 - name: Ensure .ssh directory exists.
   file:

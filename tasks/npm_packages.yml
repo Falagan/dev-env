@@ -1,12 +1,3 @@
-- name: Install N
-  become: true
-  npm:
-    name: n
-    global: yes
-  tags:
-    - install
-    - node
-    
 - name: Install npm-check-updates
   become: true
   become_method: sudo

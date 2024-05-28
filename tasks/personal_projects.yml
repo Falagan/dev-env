@@ -27,7 +27,7 @@
     - install
     - career-api
     - personal-project
-    
+
 - name: personal project career-api
   git:
     repo: 'git@github.com:Falagan/career-api.git'
@@ -39,6 +39,7 @@
     - career-api
     - personal-project
   when: careerApi.stat.exists == False
+   
 
 - name: go-htmx exists
   stat:
