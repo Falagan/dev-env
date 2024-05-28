@@ -8,3 +8,10 @@
     - install
     - node
 
+- name: Install nvm
+  become: true
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && source ~/.zshrc
+  tags:
+    - install
+    - node
+
