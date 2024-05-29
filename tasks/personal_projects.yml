@@ -13,6 +13,8 @@
     dest: "{{ personal }}/projects/career-app"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - career-app
@@ -34,6 +36,8 @@
     dest: "{{ personal }}/projects/career-api"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - career-api
@@ -56,6 +60,8 @@
     dest: "{{ personal }}/projects/go-htmx"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - go-htmx
@@ -77,6 +83,8 @@
     dest: "{{ personal }}/projects/report-sil"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - report-sil

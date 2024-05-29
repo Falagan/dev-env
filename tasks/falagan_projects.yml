@@ -13,6 +13,8 @@
     dest: "{{ falagan_software }}/projects/ar-app-web"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - ar-app-web
@@ -34,6 +36,8 @@
     dest: "{{ falagan_software }}/projects/ar-service-api"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - ar-service-api
@@ -55,6 +59,8 @@
     dest: "{{ falagan_software }}/projects/falagan_plan"
     clone: yes
     update: yes
+    accept_hostkey: yes
+    force: yes
   tags:
     - install
     - falagan_plan

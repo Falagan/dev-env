@@ -10,7 +10,14 @@
 
 - name: Install nvm
   become: true
-  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && source ~/.zshrc
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  tags:
+    - install
+    - node
+    
+- name: Source zsh to get nvm working
+  become: true
+  shell: zsh -lc "source ~/.zshrc"
   tags:
     - install
     - node
