@@ -5,6 +5,7 @@
     mode: 0700
     state: directory
   tags:
+    - dotfiles
     - install
     - ssh
 - name: Install ssh config
@@ -13,54 +14,27 @@
     dest: "{{ dest_ssh_config }}"
     mode: 0600
   tags:
-    - install
-    - ssh
-- name: set know hosts
-  become: true
-  shell: ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-  tags:
+    - dotfiles
     - install
     - ssh
 # PERSONAL SSH KEYS
-- name: Ensure .ssh directory exists.
-  file:
-    dest: "{{ dest_personal_key | dirname }}"
-    mode: 0700
-    state: directory
-  tags:
-    - install
-    - ssh
-- name: Install personal ssh key
-  copy:
-    src: "{{ source_personal_key }}"
-    dest: "{{ dest_personal_key }}"
-    mode: 0600
-  tags:
-    - install
-    - ssh
 - name: Install personal ssh key public
   copy:
     src: "{{ source_personal_key }}.pub"
     dest: "{{ dest_personal_key }}.pub"
     mode: 0644
   tags:
+    - dotfiles
     - install
     - ssh
 #FALAGAN SSH KEYS
-- name: Ensure .ssh directory exists.
-  file:
-    dest: "{{ dest_falagan_key | dirname }}"
-    mode: 0700
-    state: directory
-  tags:
-    - install
-    - ssh
 - name: Install falagan ssh key
   copy:
     src: "{{ source_falagan_key }}"
     dest: "{{ dest_falagan_key }}"
     mode: 0600
   tags:
+    - dotfiles
     - install
     - ssh
 - name: Install falagan ssh key public
@@ -69,13 +43,7 @@
     dest: "{{ dest_falagan_key }}.pub"
     mode: 0644
   tags:
-    - install
-    - ssh
-# SET den-env repository url to use SSH
-- name: Set dev-env repo url to use ssh\
-  become: true
-  shell: cd ~/personal/projects/dev-env && git remote set-url origin git@github.com:Falagan/dev-env.git
-  tags:
+    - dotfiles
     - install
     - ssh
 #- name: Set authorized key took from file

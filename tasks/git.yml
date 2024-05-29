@@ -29,9 +29,3 @@
     value: "Eloy Perez"
   tags:
   - git-falagan
-  
-- name: Install gitflow
-  become: true
-  shell: apt-get install git-flow
-  tags: 
-   - git-flow
