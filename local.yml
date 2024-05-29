@@ -21,16 +21,16 @@
   tasks:
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/git.yml    
-    # - import_tasks: tasks/brave.yml
-    # - import_tasks: tasks/chrome.yml
-    # - import_tasks: tasks/personal_projects.yml
-    # - import_tasks: tasks/falagan_projects.yml
-    # - import_tasks: tasks/node.yml
-    # - import_tasks: tasks/npm_packages.yml
-    # - import_tasks: tasks/zsh.yml
-    # - import_tasks: tasks/vscode.yml
-    # - import_tasks: tasks/docker.yml
-    # - import_tasks: tasks/go.yml
-    # - import_tasks: tasks/slack.yml
-    # - import_tasks: tasks/thunderbird.yml
-    # - import_tasks: tasks/discord.yml
+    - import_tasks: tasks/brave.yml
+    - import_tasks: tasks/chrome.yml
+    - import_tasks: tasks/personal_projects.yml
+    - import_tasks: tasks/falagan_projects.yml
+    - import_tasks: tasks/node.yml
+    - import_tasks: tasks/npm_packages.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/vscode.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/go.yml
+    - import_tasks: tasks/slack.yml
+    - import_tasks: tasks/thunderbird.yml
+    - import_tasks: tasks/discord.yml
