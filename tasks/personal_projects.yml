@@ -1,3 +1,5 @@
+#CAREER-APP PROJECT
+
 - name: career-app exists
   stat:
     path: "{{ personal }}/projects/career-app"
@@ -20,7 +22,27 @@
     - career-app
     - personal-project
   when: careerApp.stat.exists == False
-  
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/career-app"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-personal
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/career-app"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-personal
+
+#CAREER-API PROJECT
+
 - name: career-api exists
   stat:
     path: "{{ personal }}/projects/career-api"
@@ -43,7 +65,26 @@
     - career-api
     - personal-project
   when: careerApi.stat.exists == False
-   
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/career-api"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-personal
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/career-api"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-personal
+
+#GO-HTMX PROJECT
 
 - name: go-htmx exists
   stat:
@@ -68,6 +109,26 @@
     - personal-project
   when: goHtmx.stat.exists == False
 
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/go-htmx"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-personal
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/go-htmx"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-personal
+
+#REPORT-SIL PROJECT
+
 - name: report-sil exists
   stat:
     path: "{{ personal }}/projects/report-sil"
@@ -90,3 +151,12 @@
     - report-sil
     - personal-project
   when: reportSil.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/report-sil"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-personal

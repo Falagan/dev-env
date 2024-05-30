@@ -1,3 +1,5 @@
+# AR-APP-WEB PROJECT
+
 - name: ar-app-web exists
   stat:
     path: "{{ falagan_software }}/projects/ar-app-web"
@@ -20,6 +22,26 @@
     - ar-app-web
     - falagan_software-project
   when: arAppWeb.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ falagan_software }}/projects/ar-app-web"
+    name: user.email
+    scope: local
+    value: "falagansoftware@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ falagan_software }}/projects/ar-app-web"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+# AR-SERVICE-WEB PROJECT
 
 - name: ar-service-api exists
   stat:
@@ -44,6 +66,26 @@
     - falagan_software-project
   when: arServiceApi.stat.exists == False
 
+- name: Git setup email
+  git_config:
+    repo: "{{ falagan_software }}/projects/ar-service-api"
+    name: user.email
+    scope: local
+    value: "falagansoftware@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ falagan_software }}/projects/ar-service-api"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+# FALAGAN_PLAN PROJECT
+
 - name: falagan_plan exists
   stat:
     path: "{{ falagan_software }}/projects/falagan_plan"
@@ -66,3 +108,64 @@
     - falagan_plan
     - falagan_software-project
   when: falaganPlan.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ falagan_software }}/projects/falagan_plan"
+    name: user.email
+    scope: local
+    value: "falagansoftware@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ falagan_software }}/projects/falagan_plan"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+  #AUTO-REPAIR PROJECT
+
+- name: auto-repair exists
+  stat:
+    path: "{{ falagan_software }}/projects/auto-repair"
+  register: autoRepair
+  tags:
+    - install
+    - auto-repair
+    - falagan_software-project
+
+- name: falagan_software project auto-repair
+  git:
+    repo: "git@github.com-falagansoftware:falagansoftware/auto-repair.git"
+    dest: "{{ falagan_software }}/projects/auto-repair"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - auto-repair
+    - falagan_software-project
+  when: autoRepair.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ falagan_software }}/projects/auto-repair"
+    name: user.email
+    scope: local
+    value: "falagansoftware@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ falagan_software }}/projects/auto-repair"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
