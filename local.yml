@@ -34,3 +34,4 @@
     - import_tasks: tasks/slack.yml
     - import_tasks: tasks/thunderbird.yml
     - import_tasks: tasks/discord.yml
+    - import_tasks: tasks/fonts.yml
