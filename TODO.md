@@ -3,7 +3,8 @@
 - ubuntu keyboard shortcut to show all applications menu (Super+Space)
 - curl: sudo apt-get install curl
 - lazyvim:
-      1 - descagar repo propio de lazyvim
+
+1 - descagar repo propio de lazyvim
       2 - instal ripgrep
         sudo apt-get install ripgrep
       3 - install fd y fdfind
