@@ -24,7 +24,7 @@ tar xf lazygit.tar.gz lazygit
 
 sudo install lazygit /usr/local/bin
 
-5 - install lua compiler
+5 - install lua compiler and package manager
 
               - sudo apt install lua5.3
               - sudo apt install liblua5.3-dev
@@ -34,5 +34,4 @@ sudo install lazygit /usr/local/bin
               - ./configure && make && sudo make install
               - sudo luarocks install luasocket
 
-6 - install luarocks package manager
 
