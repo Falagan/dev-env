@@ -1,0 +1,42 @@
+# go-kit PROJECT
+
+- name: go-kit exists
+  stat:
+    path: "{{ runcode }}/projects/go-kit"
+  register: arAppWeb
+  tags:
+    - install
+    - go-kit
+    - runcode-project
+
+- name: runcode project go-kit
+  git:
+    repo: "git@github.com-runcode:runcode/go-kit.git"
+    dest: "{{ runcode }}/projects/go-kit"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - go-kit
+    - runcode-project
+  when: arAppWeb.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ runcode }}/projects/go-kit"
+    name: user.email
+    scope: local
+    value: "ep@runcode.sh"
+  tags:
+  - git-runcode
+
+- name: Git setup name
+  git_config:
+    repo: "{{ runcode }}/projects/go-kit"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-runcode

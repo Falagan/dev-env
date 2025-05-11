@@ -1,8 +1,8 @@
-- name: Install docker
+- name: Install go
   become: true
   apt: name=golang-go
   tags: 
-   - docker
+   - go
 
    
     

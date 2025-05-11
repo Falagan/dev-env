@@ -1,8 +1,0 @@
-- name: Install thunderbird
-  become: true
-  apt: name=thunderbird
-  tags: 
-   - thunderbird
-
-   
-    

@@ -160,3 +160,175 @@
     value: "ep.falagan@gmail.com"
   tags:
   - git-personal
+
+  # AR-APP-WEB PROJECT
+
+- name: ar-app-web exists
+  stat:
+    path: "{{ personal }}/projects/ar-app-web"
+  register: arAppWeb
+  tags:
+    - install
+    - ar-app-web
+    - personal-project
+
+- name: personal project ar-app-web
+  git:
+    repo: "git@github.com:Falagan/ar-app-web.git"
+    dest: "{{ personal }}/projects/ar-app-web"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - ar-app-web
+    - personal-project
+  when: arAppWeb.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/ar-app-web"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/ar-app-web"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+# AR-SERVICE-WEB PROJECT
+
+- name: ar-service-api exists
+  stat:
+    path: "{{ personal }}/projects/ar-service-api"
+  register: arServiceApi
+  tags:
+    - install
+    - ar-service-api
+    - personal-project
+
+- name: personal project ar-service-api
+  git:
+    repo: "git@github.com:Falagan/ar-service-api.git"
+    dest: "{{ personal }}/projects/ar-service-api"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - ar-service-api
+    - personal-project
+  when: arServiceApi.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/ar-service-api"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/ar-service-api"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+# FALAGAN_PLAN PROJECT
+
+- name: falagan_plan exists
+  stat:
+    path: "{{ personal }}/projects/falagan_plan"
+  register: falaganPlan
+  tags:
+    - install
+    - falagan_plan
+    - personal-project
+
+- name: personal project falagan_plan
+  git:
+    repo: "git@github.com:Falagan/falagan_plan.git"
+    dest: "{{ personal }}/projects/falagan_plan"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - falagan_plan
+    - personal-project
+  when: falaganPlan.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/falagan_plan"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/falagan_plan"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan
+
+  #AUTO-REPAIR PROJECT
+
+- name: auto-repair exists
+  stat:
+    path: "{{ personal }}/projects/auto-repair"
+  register: autoRepair
+  tags:
+    - install
+    - auto-repair
+    - personal-project
+
+- name: personal project auto-repair
+  git:
+    repo: "git@github.com:Falagan/auto-repair.git"
+    dest: "{{ personal }}/projects/auto-repair"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - auto-repair
+    - personal-project
+  when: autoRepair.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/auto-repair"
+    name: user.email
+    scope: local
+    value: "ep.falagan@gmail.com"
+  tags:
+  - git-falagan
+
+- name: Git setup name
+  git_config:
+    repo: "{{ personal }}/projects/auto-repair"
+    name: user.name
+    scope: local
+    value: "Eloy Perez"
+  tags:
+  - git-falagan

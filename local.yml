@@ -4,10 +4,10 @@
     dest_ssh_config: "{{ lookup('env', 'HOME') }}/.ssh"
     source_personal_key: "./.ssh/id_rsa"
     dest_personal_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
-    source_falagan_key: "./.ssh/id_rsa_github_falagan"
-    dest_falagan_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_github_falagan"
+    source_runcode_key: "./.ssh/id_ed25519_runcode"
+    dest_runcode_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519_runcode"
     personal: "{{ lookup('env', 'HOME') }}/personal"
-    falagan_software: "{{ lookup('env', 'HOME') }}/falagan_software"
+    runcode: "{{ lookup('env', 'HOME') }}/runcode"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -24,14 +24,11 @@
     - import_tasks: tasks/brave.yml
     - import_tasks: tasks/chrome.yml
     - import_tasks: tasks/personal_projects.yml
-    - import_tasks: tasks/falagan_projects.yml
+    - import_tasks: tasks/runcode_projects.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/node.yml
     - import_tasks: tasks/npm_packages.yml
     - import_tasks: tasks/vscode.yml
     - import_tasks: tasks/docker.yml
     - import_tasks: tasks/go.yml
-    - import_tasks: tasks/slack.yml
-    - import_tasks: tasks/thunderbird.yml
-    - import_tasks: tasks/discord.yml
     - import_tasks: tasks/fonts.yml
