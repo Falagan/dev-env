@@ -332,3 +332,37 @@
     value: "Eloy Perez"
   tags:
   - git-falagan
+
+#KNOWLEDGE PROJECT
+
+- name: knowledge exists
+  stat:
+    path: "{{ personal }}/projects/knowledge"
+  register: knowledge
+  tags:
+    - install
+    - knowledge
+    - personal-project
+    
+- name: personal project knowledge
+  git:
+    repo: 'git@github.com:Falagan/knowledge.git'
+    dest: "{{ personal }}/projects/knowledge"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags:
+    - install
+    - knowledge
+    - personal-project
+  when: knowledge.stat.exists == False
+
+- name: Git setup email
+  git_config:
+    repo: "{{ personal }}/projects/knowledge"
+    name: user.email
+    scope: local
+    value: "ep@runcode.sh"
+  tags:
+  - git-personal
