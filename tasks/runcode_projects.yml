@@ -11,7 +11,7 @@
 
 - name: runcode project go-kit
   git:
-    repo: "git@github.com-runcode:runcode/go-kit.git"
+    repo: "git@github.com-runcode-internal:runcode-internal/go-kit.git"
     dest: "{{ runcode }}/projects/go-kit"
     clone: yes
     update: yes
