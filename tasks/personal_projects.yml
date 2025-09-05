@@ -22,6 +22,7 @@
     - knowledge
     - personal-project
   when: knowledge.stat.exists == False
+  ignore_errors: true
 
 - name: Git setup email
   git_config:
