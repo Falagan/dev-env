@@ -22,6 +22,7 @@
     - go-kit
     - runcode-project
   when: goKit.stat.exists == False
+  ignore_errors: true
 
 - name: Git setup email
   git_config:
@@ -65,6 +66,7 @@
     - go-ds
     - runcode-project
   when: goDs.stat.exists == False
+  ignore_errors: true
 
 - name: Git setup email
   git_config:
