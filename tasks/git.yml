@@ -13,3 +13,11 @@
     value: "Eloy Perez"
   tags:
   - git-personal
+  
+- name: Git private repos runcode
+  git_config:
+    name: url."git@github.com-runcode-internal:runcode-internal/.insteadof"
+    scope: local
+    value: "https://github.com/runcode-internal/"
+  tags:
+  - git-runcode
